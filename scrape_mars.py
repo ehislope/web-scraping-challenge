@@ -12,6 +12,7 @@ def init_browser():
 
 
 def scrape_info():
+    mars_info = {}
     browser = init_browser()
 
     # visit NASA'a mars News Site and get the latest headline and paragrph text
@@ -19,9 +20,11 @@ def scrape_info():
 
     html = requests.get(url).text
     soup = bs(html, 'lxml')
-    news_title = soup.find('div', class_="content_title")
-    news_p = soup.find("div", class_="rollover_description_inner")
-    
+    news_title = soup.find('div', class_="content_title").text.strip()
+    news_p = soup.find("div", class_="rollover_description_inner").text.strip()
+    mars_info["News Title"]=news_title
+    mars_info["News Paragraph"]=news_p
+
     #go to JPL Space images and get the full size featured image
     url="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
@@ -37,14 +40,16 @@ def scrape_info():
         image_url = link.get("href")
         featured_image_url = url+image_url
     
+    mars_info["featured_image_url"]=featured_image_url
+    
     #got to spacefacts/mars to get mars facts table
     url = "https://space-facts.com/mars/"
     mars_table = pd.read_html(url)
     mars_df = mars_table[0]
     mars_df.columns = ["Description","Mars"]
     mars_df.set_index('Description', inplace=True)
-    mars_df.to_html("mars_table.html")
-    
+    mars_table=mars_df.to_html()
+    mars_info["mars_table"]=mars_table
     
     #get full size images of mars hemispheres from USGS Astrogeology 
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -70,13 +75,16 @@ def scrape_info():
         hemisphere_info["image_url"] = base_url + image_url
         hemisphere_images.append(hemisphere_info)
         browser.back()
-        
+    
+    mars_info["hemispheres"]=hemisphere_images 
     #Store data in a dictionary 
-    {
-        "News Title":news_title,
-        "News Paragraph":news_p,
-        "JPL Feature Image":featured_image_url,
-        "Mars Table":mars_table,
-        "Mars Hemispheres":hemisphere_images
-    }
+    # mars_info = {
+    #     "News Title":news_title,
+    #     "News Paragraph":news_p,
+    #     "JPL Feature Image":featured_image_url,
+    #     "Mars Table":mars_table,
+    #     "Mars Hemispheres":hemisphere_images
+    # }
     browser.quit()
+
+    return mars_info
