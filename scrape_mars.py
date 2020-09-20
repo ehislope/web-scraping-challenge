@@ -22,8 +22,8 @@ def scrape_info():
     soup = bs(html, 'lxml')
     news_title = soup.find('div', class_="content_title").text.strip()
     news_p = soup.find("div", class_="rollover_description_inner").text.strip()
-    mars_info["News Title"]=news_title
-    mars_info["News Paragraph"]=news_p
+    mars_info["news_title"]=news_title
+    mars_info["news_paragraph"]=news_p
 
     #go to JPL Space images and get the full size featured image
     url="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -77,14 +77,6 @@ def scrape_info():
         browser.back()
     
     mars_info["hemispheres"]=hemisphere_images 
-    #Store data in a dictionary 
-    # mars_info = {
-    #     "News Title":news_title,
-    #     "News Paragraph":news_p,
-    #     "JPL Feature Image":featured_image_url,
-    #     "Mars Table":mars_table,
-    #     "Mars Hemispheres":hemisphere_images
-    # }
     browser.quit()
 
     return mars_info

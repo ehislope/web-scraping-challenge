@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+  </head>
 
-<body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+  <body>
+    <div class="container-fluid">
+     <div class="jumbotron text-center">
+       <h1>Mission to Mars</h1>
+       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+     </div>
+     {% if mars %}
+     <h2>Latest Mars News</h2>
+     <h3> {{ mars.news_title}}</h3>
+     <p> {{ mars.news_paragraph }}</p>
+
+     <img src="{{ mars.featured_image_url }}" alt="JPL Featured Image">
+     <table> {{ mars.mars_table }} </table>
+     {% endif %}
     </div>
-    {% if mars %}
-    <h2>Latest Mars News</h2>
-    <h3> {{ mars.news_title }}</h3>
-    <p> {{ mars.news_p }}</p>
-
-    <img src="{{ featured_image_url }}" alt="JPL Featured Image">
-    <table> {{ mars.mars_table }} </table>
-    <h3>Max Temp: {{ vacation.max_temp }}</h3>
-    <h3>Min Temp: {{ vacation.min_temp }}</h3> -->
-    {% endif %}
-  </div>
-  </div>
-</body>
+  </body>
 
 </html>
