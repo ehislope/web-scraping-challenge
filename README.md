@@ -33,5 +33,5 @@ To do this you will need:
 
 
 You should end up with something that looks like this:
-<img src="/images/screenshot.png"></img>
+<img src="images/screenshot.png"></img>
 
