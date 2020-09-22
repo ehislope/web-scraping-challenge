@@ -40,7 +40,7 @@ def scrape_info():
         image_url = link.get("href")
         featured_image_url = url+image_url
     
-    mars_info["featured_image_url"]=featured_image_url
+    mars_info["featured_image"]=featured_image_url
     
     #got to spacefacts/mars to get mars facts table
     url = "https://space-facts.com/mars/"

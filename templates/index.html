@@ -42,7 +42,7 @@
 					<p>
 						{{ mars.news_paragraph }}
 					</p>
-					<img src="{{ mars.featured_image_url }}" alt="JPL Featured Image"/>
+					<img src={{ mars.featured_image }} alt="JPL Featured Image"/>
 				</div>
 				<div class="col-md-4">
 					<h3>Mars Facts</h3>
@@ -52,23 +52,26 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
+					<img src={{ mars.hemispheres[0]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<h3>{{ mars.hemispheres[0]['title'] }}</h3>
+					<img src={{ mars.hemispheres[1]['image_url'] }} width = 500 class="Center"alt="An image of the Cerberus Hemisphere of Mars"/>
+					<h3>{{ mars.hemispheres[1]['title'] }}</h3>
+				</div>
+				<div class="col-md-6">
+					<img src={{ mars.hemispheres[2]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<h3>{{ mars.hemispheres[2]['title'] }}</h3>
+					<img src={{ mars.hemispheres[3]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<h3>{{ mars.hemispheres[2]['title'] }}</h3>
+				</div>
 				</div>
 			</div>
 		</div>
 	</div>
  </div>
- 	<img src={{ mars.hemispheres[0]['img_url'] }} alt="An image of the Cerberus Hemisphere of Mars"/>
- 	<h3>{{ mars.hemispheres[0]['title'] }}</h3>
+
+
 </div>
- {% for hemisphere in hemispheres %}
-				<tr>
-					<td>{{ mars.hemispheres[0] }}</td>
-					<td>{{ mars.hemispheres[1] }}</td>
-					<td>{{ mars.hemispheres[2] }}</td>
-					<td>{{ mars.hemispheres[3] }}</td>
-				</tr>
-			{% endfor %}
  		{% endif %}
   </body>
 </html>
