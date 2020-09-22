@@ -42,7 +42,7 @@
 					<p>
 						{{ mars.news_paragraph }}
 					</p>
-					<img src={{ mars.featured_image }} alt="JPL Featured Image"/>
+					<img src={{ mars.featured_image_url }} width=750 alt="JPL Featured Image"/>
 				</div>
 				<div class="col-md-4">
 					<h3>Mars Facts</h3>
@@ -53,15 +53,15 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<img src={{ mars.hemispheres[0]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<img src={{ mars.hemispheres[0]['image_url'] }} width = 500 alt="An image of the Cerberus Hemisphere of Mars"/>
 					<h3>{{ mars.hemispheres[0]['title'] }}</h3>
-					<img src={{ mars.hemispheres[1]['image_url'] }} width = 500 class="Center"alt="An image of the Cerberus Hemisphere of Mars"/>
+					<img src={{ mars.hemispheres[1]['image_url'] }} width = 500 alt="An image of the Cerberus Hemisphere of Mars"/>
 					<h3>{{ mars.hemispheres[1]['title'] }}</h3>
 				</div>
 				<div class="col-md-6">
-					<img src={{ mars.hemispheres[2]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<img src={{ mars.hemispheres[2]['image_url'] }} width = 500 alt="An image of the Cerberus Hemisphere of Mars"/>
 					<h3>{{ mars.hemispheres[2]['title'] }}</h3>
-					<img src={{ mars.hemispheres[3]['image_url'] }} width = 500 class="center" alt="An image of the Cerberus Hemisphere of Mars"/>
+					<img src={{ mars.hemispheres[3]['image_url'] }} width = 500 alt="An image of the Cerberus Hemisphere of Mars"/>
 					<h3>{{ mars.hemispheres[2]['title'] }}</h3>
 				</div>
 				</div>
