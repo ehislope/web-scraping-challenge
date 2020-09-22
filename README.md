@@ -4,7 +4,7 @@
 The first part of the challenge was to scrape info about mars from four different websites.
 To do this you will need to import the following:
 <ul>
-*import os
+<li>*import os</li>
 *from bs4 import BeautifulSoup
 *import requests
 *from splinter import Browser
